@@ -50,7 +50,13 @@ jobs:
         run: |
           ARGS="-Pmindheed.githubRepo=${{ github.repository }} -Pmindheed.versionCode=${{ github.run_number }}"
           if [ "$SIGNED" = "true" ]; then
-            gradle $ARGS testReleaseUnitTest assembleRelease bundleRelease
+            # Surface Gradle's error as an annotation (readable without logging in).
+            if ! gradle $ARGS testReleaseUnitTest assembleRelease bundleRelease > gradle.log 2>&1; then
+              tail -n 60 gradle.log
+              ERR=$(grep -A8 "What went wrong" gradle.log | tr '\n' ' ' | cut -c1-900)
+              echo "::error title=Gradle release build::${ERR:-see log}"
+              exit 1
+            fi
             cp app/build/outputs/apk/release/app-release.apk mindheed.apk
             cp app/build/outputs/bundle/release/app-release.aab mindheed.aab
           else
