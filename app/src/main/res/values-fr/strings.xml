@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="service_description">MindHeed détecte quand tu continues de scroller sur Instagram et voile progressivement l’écran, puis te propose une bulle qui te ramène à tes publications enregistrées. Il sait seulement quelle appli est ouverte et qu’un scroll a eu lieu. Il ne peut rien lire à l’écran, et rien ne quitte ton téléphone.</string>
+
+    <string name="tagline">Scrolle moins. Garde l’essentiel.</string>
+
+    <string name="status_on">MindHeed est actif sur Instagram.</string>
+    <string name="status_off">MindHeed n’est pas encore activé.</string>
+    <string name="btn_enable">Activer MindHeed</string>
+    <string name="btn_manage">Réglages d’accessibilité</string>
+
+    <string name="disclosure_title">Avant d’activer</string>
+    <string name="disclosure_body">MindHeed utilise le service d’accessibilité d’Android pour fonctionner par-dessus Instagram.\n\nCe qu’il utilise :\n• l’appli au premier plan (pour savoir quand Instagram est ouvert)\n• le fait qu’un scroll a eu lieu dans Instagram (pour compter combien de publications tu fais défiler)\n\nCe qu’il en fait : il affiche un voile progressif par-dessus Instagram et une bulle qui ouvre tes publications enregistrées.\n\nCe qu’il ne fait jamais : lire ton écran, tes messages ou tes mots de passe. Il ne collecte rien et n’envoie rien : tout reste sur ton téléphone. Il télécharge seulement, de temps en temps, un petit fichier public de réglages (seuils, dernière version).\n\nSur l’écran suivant, choisis MindHeed, puis active-le.</string>
+    <string name="disclosure_accept">J’accepte</string>
+    <string name="disclosure_decline">Plus tard</string>
+
+    <string name="how_title">Comment ça marche</string>
+    <string name="how_body">Les premières publications restent nettes. Ensuite, publication après publication, l’écran se voile. Quand le voile devient fort, une bulle apparaît : touche-la pour ouvrir tes publications enregistrées. Tes enregistrements s’ouvrent sans voile ni limite, tant que tu restes dans Instagram. Le compteur repart de zéro. Le voile ne compte que le feed principal.</string>
+    <string name="diagnostic_view">Dernière vue scrollée : %1$s · version %2$s</string>
+    <string name="update_title">Nouvelle version disponible</string>
+    <string name="update_body">MindHeed %1$s est disponible. Mettre à jour maintenant ?</string>
+    <string name="update_now">Mettre à jour</string>
+
+    <string name="settings_title">Réglages</string>
+    <string name="switch_enabled">Voiler Instagram quand je scrolle trop longtemps</string>
+    <string name="username_label">Ton nom d’utilisateur Instagram</string>
+    <string name="username_hint">ex. mindheed</string>
+    <string name="username_help">Sert uniquement à ouvrir tes publications enregistrées. Il reste sur ton téléphone.</string>
+    <string name="clear_label">Publications nettes avant le voile : %1$d</string>
+    <string name="ramp_label">Publications pour que le voile atteigne son maximum : %1$d</string>
+    <string name="diagnostic">Session en cours : %1$d gestes de scroll · %2$d éléments parcourus</string>
+    <string name="diagnostic_help">Test : fais défiler exactement 10 publications sur Instagram, puis reviens ici. Le chiffre le plus proche de 10 indique le compteur le plus fidèle.</string>
+    <string name="intensity_label">Intensité maximale : %1$d %%</string>
+
+    <string name="xiaomi_title">Sur Xiaomi, Redmi ou POCO</string>
+    <string name="xiaomi_body">Le système peut arrêter MindHeed en arrière-plan. Dans Paramètres › Applications › MindHeed : active le Démarrage automatique et règle l’Économiseur de batterie sur « Aucune restriction ».</string>
+
+    <string name="privacy_button">Politique de confidentialité</string>
+    <string name="privacy_title">Confidentialité</string>
+    <string name="privacy_body">MindHeed ne collecte aucune donnée personnelle.\n\n• Le service d’accessibilité reçoit seulement le nom de l’appli au premier plan et un signal « un scroll a eu lieu » venant d’Instagram. Il ne peut pas lire le contenu de l’écran.\n• Tes réglages et ton nom d’utilisateur Instagram sont stockés uniquement sur ton téléphone.\n• MindHeed n’a ni compte, ni statistiques, ni publicité. Il lit seulement un fichier public de réglages, sans rien envoyer sur toi.\n• Désinstaller l’appli efface tout.\n\nMindHeed n’est pas affilié à Instagram ni à Meta.</string>
+    <string name="ok">OK</string>
+
+    <string name="need_username">Ajoute ton nom d’utilisateur Instagram pour que la bulle puisse ouvrir tes publications enregistrées.</string>
+    <string name="open_failed">Impossible d’ouvrir Instagram.</string>
+    <string name="floaty_description">Ouvrir tes publications enregistrées</string>
+</resources>

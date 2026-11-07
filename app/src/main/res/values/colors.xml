@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="mh_indigo">#2B2D6E</color>
+    <color name="mh_violet">#5B4BC4</color>
+    <color name="mh_gold">#FFD166</color>
+    <color name="mh_background">#F6F5FB</color>
+    <color name="mh_card">#FFFFFF</color>
+    <color name="mh_text">#1C1B29</color>
+    <color name="mh_text_muted">#5E5C70</color>
+    <color name="mh_ok">#1F8A4C</color>
+    <color name="mh_warn">#B3261E</color>
+</resources>

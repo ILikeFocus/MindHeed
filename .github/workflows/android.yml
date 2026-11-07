@@ -1,0 +1,93 @@
+name: Android build
+
+# Every push: tests + test APK (downloadable from the run's "Artifacts").
+# Tag "v*" (e.g. v0.2.0): GitHub release with mindheed.apk (sideload) + mindheed.aab (Play),
+# then config/remote-config.json is bumped so installed apps offer the update.
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      # No wrapper jar in the repo: install this exact Gradle version instead.
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.14.3"
+
+      - name: Restore release keystore (if configured)
+        env:
+          KEYSTORE_BASE64: ${{ secrets.MINDHEED_KEYSTORE_BASE64 }}
+        run: |
+          if [ -n "$KEYSTORE_BASE64" ]; then
+            echo "$KEYSTORE_BASE64" | base64 -d > "$RUNNER_TEMP/mindheed.jks"
+            echo "MINDHEED_KEYSTORE_FILE=$RUNNER_TEMP/mindheed.jks" >> "$GITHUB_ENV"
+            echo "SIGNED=true" >> "$GITHUB_ENV"
+          else
+            echo "SIGNED=false" >> "$GITHUB_ENV"
+          fi
+
+      - name: Test and build
+        env:
+          MINDHEED_KEYSTORE_PASSWORD: ${{ secrets.MINDHEED_KEYSTORE_PASSWORD }}
+          MINDHEED_KEY_ALIAS: ${{ secrets.MINDHEED_KEY_ALIAS }}
+          MINDHEED_KEY_PASSWORD: ${{ secrets.MINDHEED_KEY_PASSWORD }}
+        run: |
+          ARGS="-Pmindheed.githubRepo=${{ github.repository }} -Pmindheed.versionCode=${{ github.run_number }}"
+          if [ "$SIGNED" = "true" ]; then
+            gradle $ARGS testReleaseUnitTest assembleRelease bundleRelease
+            cp app/build/outputs/apk/release/app-release.apk mindheed.apk
+            cp app/build/outputs/bundle/release/app-release.aab mindheed.aab
+          else
+            # Without a keystore: debug-signed test APK only (not for stores).
+            gradle $ARGS testDebugUnitTest assembleDebug
+            cp app/build/outputs/apk/debug/app-debug.apk mindheed.apk
+          fi
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mindheed-${{ github.run_number }}
+          path: |
+            mindheed.apk
+            mindheed.aab
+          if-no-files-found: ignore
+
+      - name: Publish release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            mindheed.apk
+            mindheed.aab
+          make_latest: true
+          generate_release_notes: true
+
+      - name: Announce the update to installed apps
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          git fetch origin main
+          git checkout main
+          jq --argjson code ${{ github.run_number }} --arg name "$VERSION" \
+             --arg apk "https://github.com/${{ github.repository }}/releases/latest/download/mindheed.apk" \
+             '.latestVersionCode=$code | .latestVersionName=$name | .apkUrl=$apk' \
+             config/remote-config.json > config.tmp && mv config.tmp config/remote-config.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "Announce version $VERSION" || exit 0
+          git push origin main

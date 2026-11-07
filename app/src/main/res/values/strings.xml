@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">MindHeed</string>
+    <string name="service_label" translatable="false">MindHeed</string>
+    <string name="service_description">MindHeed detects when you keep scrolling in Instagram and gradually veils the screen, then offers a bubble that takes you back to your saved posts. It only knows which app is open and that a scroll happened. It cannot read anything on your screen, and nothing leaves your phone.</string>
+
+    <string name="tagline">Scroll less. Keep what matters.</string>
+
+    <string name="status_on">MindHeed is active on Instagram.</string>
+    <string name="status_off">MindHeed is not active yet.</string>
+    <string name="btn_enable">Turn on MindHeed</string>
+    <string name="btn_manage">Accessibility settings</string>
+
+    <string name="disclosure_title">Before you turn it on</string>
+    <string name="disclosure_body">MindHeed uses Android’s Accessibility service to work on top of Instagram.\n\nWhat it uses:\n• which app is in front (to know when Instagram is open)\n• the fact that a scroll happened in Instagram (to count how many posts you scroll past)\n\nWhat it does with it: shows a gradual veil over Instagram and a bubble that opens your saved posts.\n\nWhat it never does: read your screen, your messages or your passwords. It collects nothing and sends nothing: everything stays on your phone. It only downloads, from time to time, a small public settings file (thresholds, latest version).\n\nOn the next screen, select MindHeed, then turn it on.</string>
+    <string name="disclosure_accept">I agree</string>
+    <string name="disclosure_decline">Not now</string>
+
+    <string name="how_title">How it works</string>
+    <string name="how_body">The first posts you scroll past stay clear. Then, post after post, the screen veils over. When it gets strong, a bubble appears: tap it to open your saved posts. They open with no veil and no limit while you stay in Instagram, and the counter starts over. Only the main feed is counted.</string>
+    <string name="diagnostic_view">Last scrolled view: %1$s · version %2$s</string>
+    <string name="update_title">New version available</string>
+    <string name="update_body">MindHeed %1$s is available. Update now?</string>
+    <string name="update_now">Update</string>
+
+    <string name="settings_title">Settings</string>
+    <string name="switch_enabled">Veil Instagram when I scroll too long</string>
+    <string name="username_label">Your Instagram username</string>
+    <string name="username_hint">e.g. mindheed</string>
+    <string name="username_help">Used only to open your saved posts. It stays on your phone.</string>
+    <string name="clear_label">Clear posts before the veil: %1$d</string>
+    <string name="ramp_label">Posts for the veil to reach its maximum: %1$d</string>
+    <string name="diagnostic">Current session: %1$d scroll swipes · %2$d list items passed</string>
+    <string name="diagnostic_help">Test: scroll exactly 10 posts in Instagram, then come back here. The number closest to 10 tells which counter matches the posts best.</string>
+    <string name="intensity_label">Maximum intensity: %1$d %%</string>
+
+    <string name="xiaomi_title">On Xiaomi, Redmi or POCO</string>
+    <string name="xiaomi_body">The system may stop MindHeed in the background. In Settings › Apps › MindHeed: turn on Autostart and set Battery saver to “No restrictions”.</string>
+
+    <string name="privacy_button">Privacy policy</string>
+    <string name="privacy_title">Privacy</string>
+    <string name="privacy_body">MindHeed collects no personal data.\n\n• The Accessibility service only receives the name of the app in front and a “scroll happened” signal from Instagram. It cannot read screen content.\n• Your settings and your Instagram username are stored only on your phone.\n• MindHeed has no account, no analytics and no ads. It only reads a public settings file, without sending anything about you.\n• Uninstalling the app deletes everything.\n\nMindHeed is not affiliated with Instagram or Meta.</string>
+    <string name="ok">OK</string>
+
+    <string name="need_username">Add your Instagram username so the bubble can open your saved posts.</string>
+    <string name="open_failed">Couldn’t open Instagram.</string>
+    <string name="floaty_description">Open your saved posts</string>
+</resources>

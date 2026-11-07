@@ -1,0 +1,11 @@
+{
+  "configVersion": 1,
+  "clearPosts": 1,
+  "rampPosts": 2,
+  "intensity": 70,
+  "savedModeMaxMinutes": 30,
+  "countOnlyClasses": [],
+  "latestVersionCode": 1,
+  "latestVersionName": "0.2.0",
+  "apkUrl": ""
+}

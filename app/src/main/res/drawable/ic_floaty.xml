@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Same star as the Chrome extension's floating button. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="40dp"
+    android:height="40dp"
+    android:viewportWidth="64"
+    android:viewportHeight="64">
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M32,8C36.6,16.5 44.5,24.1 54,28C44.5,31.9 36.6,39.5 32,48C27.4,39.5 19.5,31.9 10,28C19.5,24.1 27.4,16.5 32,8Z" />
+    <path
+        android:fillColor="@color/mh_gold"
+        android:pathData="M32,28m-6,0a6,6 0,1 1,12 0a6,6 0,1 1,-12 0" />
+</vector>

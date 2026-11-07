@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:background="@drawable/bg_floaty">
+
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:layout_gravity="center"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_floaty" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_name"
+                    android:textColor="@color/mh_text"
+                    android:textSize="26sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tagline"
+                    android:textColor="@color/mh_text_muted"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Status -->
+        <LinearLayout style="@style/MindHeed.Card">
+
+            <TextView
+                android:id="@+id/status"
+                style="@style/MindHeed.CardTitle"
+                android:layout_width="match_parent" />
+
+            <Button
+                android:id="@+id/enable_button"
+                style="@style/MindHeed.Button"
+                android:text="@string/btn_enable" />
+        </LinearLayout>
+
+        <!-- How it works -->
+        <LinearLayout style="@style/MindHeed.Card">
+
+            <TextView
+                style="@style/MindHeed.CardTitle"
+                android:text="@string/how_title" />
+
+            <TextView
+                style="@style/MindHeed.Body"
+                android:text="@string/how_body" />
+        </LinearLayout>
+
+        <!-- Settings -->
+        <LinearLayout style="@style/MindHeed.Card">
+
+            <TextView
+                style="@style/MindHeed.CardTitle"
+                android:text="@string/settings_title" />
+
+            <Switch
+                android:id="@+id/enabled_switch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:minHeight="48dp"
+                android:text="@string/switch_enabled"
+                android:textColor="@color/mh_text"
+                android:textSize="14sp" />
+
+            <TextView
+                style="@style/MindHeed.Label"
+                android:labelFor="@+id/username"
+                android:text="@string/username_label" />
+
+            <EditText
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="username"
+                android:hint="@string/username_hint"
+                android:imeOptions="actionDone"
+                android:inputType="textNoSuggestions"
+                android:minHeight="48dp"
+                android:singleLine="true" />
+
+            <TextView
+                style="@style/MindHeed.Body"
+                android:text="@string/username_help"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/clear_label"
+                style="@style/MindHeed.Label" />
+
+            <SeekBar
+                android:id="@+id/clear_seek"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="40dp" />
+
+            <TextView
+                android:id="@+id/ramp_label"
+                style="@style/MindHeed.Label" />
+
+            <SeekBar
+                android:id="@+id/ramp_seek"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="40dp" />
+
+            <TextView
+                android:id="@+id/intensity_label"
+                style="@style/MindHeed.Label" />
+
+            <SeekBar
+                android:id="@+id/intensity_seek"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="40dp" />
+
+            <TextView
+                android:id="@+id/diagnostic"
+                style="@style/MindHeed.Label"
+                android:textColor="@color/mh_text_muted"
+                android:textSize="12sp" />
+
+            <TextView
+                style="@style/MindHeed.Body"
+                android:text="@string/diagnostic_help"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- Xiaomi tip, shown only on Xiaomi devices -->
+        <LinearLayout
+            android:id="@+id/xiaomi_card"
+            style="@style/MindHeed.Card"
+            android:visibility="gone">
+
+            <TextView
+                style="@style/MindHeed.CardTitle"
+                android:text="@string/xiaomi_title" />
+
+            <TextView
+                style="@style/MindHeed.Body"
+                android:text="@string/xiaomi_body" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/privacy_button"
+            style="@style/MindHeed.LinkButton"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:text="@string/privacy_button" />
+    </LinearLayout>
+</ScrollView>
