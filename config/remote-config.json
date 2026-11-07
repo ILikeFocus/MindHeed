@@ -5,7 +5,7 @@
   "intensity": 70,
   "savedModeMaxMinutes": 30,
   "countOnlyClasses": [],
-  "latestVersionCode": 1,
+  "latestVersionCode": 3,
   "latestVersionName": "0.2.0",
-  "apkUrl": ""
+  "apkUrl": "https://github.com/ILikeFocus/MindHeed/releases/latest/download/mindheed.apk"
 }
