@@ -37,6 +37,7 @@ class MainActivity : Activity() {
         enableButton.setOnClickListener {
             if (isServiceEnabled()) openAccessibilitySettings() else showDisclosure()
         }
+        findViewById<Button>(R.id.unlock_button).setOnClickListener { openAppInfo() }
 
         bindSettings()
 
@@ -86,6 +87,16 @@ class MainActivity : Activity() {
         status.setText(if (enabled) R.string.status_on else R.string.status_off)
         status.setTextColor(getColor(if (enabled) R.color.mh_ok else R.color.mh_warn))
         enableButton.setText(if (enabled) R.string.btn_manage else R.string.btn_enable)
+
+        // Android 13+ locks accessibility for apps installed outside a store ("Restricted setting"):
+        // spell out the unlock path, which is hidden behind the ⋮ menu of the app info page.
+        val restricted = !enabled && Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
+            !RemoteConfig.isFromStore(this)
+        findViewById<TextView>(R.id.setup_steps).apply {
+            visibility = if (enabled) View.GONE else View.VISIBLE
+            setText(if (restricted) R.string.setup_steps_restricted else R.string.setup_steps)
+        }
+        findViewById<View>(R.id.unlock_button).visibility = if (restricted) View.VISIBLE else View.GONE
 
         findViewById<TextView>(R.id.diagnostic).text =
             getString(R.string.diagnostic, prefs.lastSwipes, prefs.lastItemsPassed) + "\n" +
@@ -185,6 +196,14 @@ class MainActivity : Activity() {
 
     private fun openAccessibilitySettings() {
         startActivity(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))
+    }
+
+    /** App info page: its ⋮ menu holds "Allow restricted settings". */
+    private fun openAppInfo() {
+        startActivity(
+            Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                .setData(android.net.Uri.fromParts("package", packageName, null)),
+        )
     }
 
     private fun isServiceEnabled(): Boolean {

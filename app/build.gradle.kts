@@ -1,4 +1,4 @@
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+﻿import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     id("com.android.application")
@@ -20,7 +20,7 @@ android {
         minSdk = 26
         targetSdk = 36
         versionCode = ciVersionCode ?: 1
-        versionName = "0.2.0"
+        versionName = "0.2.1"
 
         val configUrl =
             if (githubRepo.isBlank()) "" else "https://raw.githubusercontent.com/$githubRepo/main/config/remote-config.json"

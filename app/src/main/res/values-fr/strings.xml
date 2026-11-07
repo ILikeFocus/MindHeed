@@ -4,8 +4,11 @@
 
     <string name="tagline">Scrolle moins. Garde l’essentiel.</string>
 
-    <string name="status_on">MindHeed est actif sur Instagram.</string>
+    <string name="status_on">✓ MindHeed est actif sur Instagram.</string>
     <string name="status_off">MindHeed n’est pas encore activé.</string>
+    <string name="setup_steps">Touche « Activer MindHeed », choisis MindHeed dans la liste (parfois rangé dans « Applications installées » ou « Services téléchargés »), puis active-le.</string>
+    <string name="setup_steps_restricted">1. Touche « Activer MindHeed », choisis MindHeed et essaie de l’activer. Si Android affiche « Paramètre restreint », c’est normal : reviens ici.\n\n2. Touche « Débloquer l’accessibilité » ci-dessous, puis ⋮ en haut à droite › « Autoriser les paramètres restreints ».\n\n3. Reviens ici et retouche « Activer MindHeed » : cette fois, ça marche.</string>
+    <string name="btn_unlock">Débloquer l’accessibilité</string>
     <string name="btn_enable">Activer MindHeed</string>
     <string name="btn_manage">Réglages d’accessibilité</string>
 

@@ -63,10 +63,23 @@
                 style="@style/MindHeed.CardTitle"
                 android:layout_width="match_parent" />
 
+            <TextView
+                android:id="@+id/setup_steps"
+                style="@style/MindHeed.Body"
+                android:visibility="gone" />
+
             <Button
                 android:id="@+id/enable_button"
                 style="@style/MindHeed.Button"
                 android:text="@string/btn_enable" />
+
+            <Button
+                android:id="@+id/unlock_button"
+                style="@style/MindHeed.LinkButton"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:text="@string/btn_unlock"
+                android:visibility="gone" />
         </LinearLayout>
 
         <!-- How it works -->

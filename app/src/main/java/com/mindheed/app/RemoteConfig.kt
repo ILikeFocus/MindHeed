@@ -107,6 +107,9 @@ object RemoteConfig {
         }
     }
 
+    /** True when a known app store installed MindHeed (Android then skips the "restricted settings" lock). */
+    fun isFromStore(context: Context): Boolean = installerPackage(context) in KNOWN_STORES
+
     private fun installerPackage(context: Context): String? = try {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             context.packageManager.getInstallSourceInfo(context.packageName).installingPackageName

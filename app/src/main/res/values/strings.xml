@@ -6,8 +6,11 @@
 
     <string name="tagline">Scroll less. Keep what matters.</string>
 
-    <string name="status_on">MindHeed is active on Instagram.</string>
+    <string name="status_on">✓ MindHeed is active on Instagram.</string>
     <string name="status_off">MindHeed is not active yet.</string>
+    <string name="setup_steps">Tap “Turn on MindHeed”, pick MindHeed in the list (sometimes under “Installed apps” or “Downloaded services”), then switch it on.</string>
+    <string name="setup_steps_restricted">1. Tap “Turn on MindHeed”, pick MindHeed and try to switch it on. If Android says “Restricted setting”, that’s expected: come back here.\n\n2. Tap “Unlock accessibility” below, then ⋮ at the top right › “Allow restricted settings”.\n\n3. Come back and tap “Turn on MindHeed” again: this time it works.</string>
+    <string name="btn_unlock">Unlock accessibility</string>
     <string name="btn_enable">Turn on MindHeed</string>
     <string name="btn_manage">Accessibility settings</string>
 
