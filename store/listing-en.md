@@ -11,15 +11,15 @@ You save posts for later… and never look at them again. Meanwhile, the feed ke
 
 MindHeed sits on top of Instagram and makes endless scrolling less gripping, without blocking anything:
 
-• **The first posts stay clear.** Enjoy it as usual.
-• **Then the screen veils over, post after post.** The more you scroll, the less the feed hooks you.
+• **The first post stays clear.** Enjoy it as usual.
+• **Then your home feed veils over, post after post.** By the 3rd one, the feed stops hooking you.
 • **A bubble appears.** Tap it to open your saved posts: the things you decided were worth keeping.
-• **Reward:** 5 veil-free minutes, and the counter starts over.
+• **Reward:** no veil and no limit in your saved posts, as long as you stay in Instagram.
 
 You control everything: how many posts stay clear, how fast the veil builds up, and how strong it gets.
 
 **Your privacy comes first**
-MindHeed only knows which app is open and that a scroll happened. It cannot read your screen. No account, no server, no ads, no data collected. Everything stays on your phone.
+MindHeed only knows which app is open and that a scroll happened. It cannot read your screen. No account, no ads, nothing collected or sent. The app only downloads a small public file with settings and update notices.
 
 **Uses the Accessibility service**
 MindHeed needs Android's Accessibility service to detect scrolling in Instagram and draw the veil. It explains this before you turn it on, and you can switch it off at any time.

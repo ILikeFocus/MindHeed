@@ -12,11 +12,11 @@ MindHeed is a digital-wellbeing app. Its Accessibility service only detects whic
 
 **What the service accesses:**
 - the package name of the app in the foreground (`typeWindowStateChanged`);
-- the fact that a scroll event happened in Instagram (`typeViewScrolled`).
+- the fact that a scroll event happened in Instagram (`typeViewScrolled`), with the event's own metadata (scroll direction, view class name, item count) to count only vertical scrolls of the main feed.
 
 **What the service does NOT access:** `canRetrieveWindowContent` is set to `false`, so the service cannot read any text, image, message or password on the screen. It performs no actions on the user's behalf: no clicks, no gestures, no typing.
 
-**Data handling:** nothing is collected, stored off the device, or transmitted. There is no account, server, analytics or advertising SDK. Settings stay on the device and are deleted when the app is uninstalled.
+**Data handling:** nothing is collected, stored off the device, or transmitted. There is no account, analytics or advertising SDK. The only network use is downloading a public, read-only settings file (default thresholds and the latest version number); no user data is sent. Settings stay on the device and are deleted when the app is uninstalled.
 
 **User consent:** before opening the Accessibility settings, the app shows a prominent in-app disclosure explaining exactly what is used, why, and what is never accessed, with "I agree" and "Not now" buttons. The service can be turned off at any time in the system settings.
 
@@ -34,6 +34,6 @@ MindHeed is a digital-wellbeing app. Its Accessibility service only detects whic
 
 **Ce qu'il n'utilise pas :** il ne peut lire aucun contenu de l'écran (`canRetrieveWindowContent="false"`) et n'effectue aucune action à la place de l'utilisateur.
 
-**Données :** aucune collecte, aucun envoi, aucun compte, aucun serveur, aucune statistique, aucune publicité.
+**Données :** aucune collecte, aucun envoi, aucun compte, aucune statistique, aucune publicité. Seul usage réseau : le téléchargement d'un fichier public de réglages (seuils par défaut et numéro de la dernière version), sans aucune donnée envoyée.
 
 **Consentement :** une déclaration claire est affichée dans l'appli avant l'activation, avec « J'accepte » et « Plus tard ».
