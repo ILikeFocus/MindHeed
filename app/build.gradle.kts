@@ -40,9 +40,10 @@ android {
         if (!keystoreFile.isNullOrBlank()) {
             create("release") {
                 storeFile = file(keystoreFile)
-                storePassword = System.getenv("MINDHEED_KEYSTORE_PASSWORD")
-                keyAlias = System.getenv("MINDHEED_KEY_ALIAS")
-                keyPassword = System.getenv("MINDHEED_KEY_PASSWORD")
+                // trim(): secrets pasted in the GitHub UI often carry stray spaces or newlines.
+                storePassword = System.getenv("MINDHEED_KEYSTORE_PASSWORD")?.trim()
+                keyAlias = System.getenv("MINDHEED_KEY_ALIAS")?.trim()
+                keyPassword = System.getenv("MINDHEED_KEY_PASSWORD")?.trim()
             }
         }
     }
