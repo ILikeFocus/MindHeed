@@ -83,8 +83,9 @@ class ScrollTracker {
      * @return true when this starts a new session (first entry, or after a real break).
      */
     fun onEnter(now: Long): Boolean {
-        val newSession = !started || (leftAt != NONE && now - leftAt >= BREAK_RESET_MS)
-        if (newSession) reset()
+        val realBreak = leftAt != NONE && now - leftAt >= BREAK_RESET_MS
+        if (realBreak) reset()
+        val newSession = realBreak || !started
         started = true
         leftAt = NONE
         return newSession
