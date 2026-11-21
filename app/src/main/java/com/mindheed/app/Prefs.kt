@@ -57,6 +57,22 @@ class Prefs(context: Context) {
     val countOnlyClasses: Set<String>
         get() = raw.getStringSet(REMOTE_COUNT_ONLY_CLASSES, emptySet()) ?: emptySet()
 
+    /** Attention pause (shape to find in an image) at the first scroll of each session. */
+    var gateEnabled: Boolean
+        get() = raw.getBoolean(KEY_GATE_ENABLED, true)
+        set(value) = raw.edit().putBoolean(KEY_GATE_ENABLED, value).apply()
+
+    /** Shapes the user named during attention pauses, most recent first (kept on the phone). */
+    val shapes: List<String>
+        get() = raw.getString(KEY_SHAPES, "").orEmpty().split('\n').filter { it.isNotBlank() }
+
+    fun addShape(shape: String) {
+        val clean = shape.replace('\n', ' ').trim()
+        if (clean.isEmpty()) return
+        val list = (listOf(clean) + shapes).take(MAX_SHAPES)
+        raw.edit().putString(KEY_SHAPES, list.joinToString("\n")).apply()
+    }
+
     /** Diagnostic: counters of the current session, shown in the app to calibrate on a real phone. */
     var lastSwipes: Int
         get() = raw.getInt(KEY_LAST_SWIPES, 0)
@@ -79,6 +95,9 @@ class Prefs(context: Context) {
         private const val KEY_INTENSITY = "intensity"
         private const val KEY_USERNAME = "username"
         private const val KEY_PAUSED_UNTIL = "paused_until"
+        private const val KEY_GATE_ENABLED = "gate_enabled"
+        const val KEY_SHAPES = "shapes"
+        private const val MAX_SHAPES = 200
         const val KEY_LAST_SWIPES = "last_swipes"
         const val KEY_LAST_ITEMS = "last_items"
         const val KEY_LAST_SCROLL_VIEW = "last_scroll_view"

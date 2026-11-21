@@ -19,7 +19,10 @@ class MindHeedService : AccessibilityService() {
 
     private lateinit var prefs: Prefs
     private lateinit var overlay: OverlayController
+    private lateinit var gate: GateController
     private val tracker = ScrollTracker()
+    /** The attention pause was answered (or skipped) in the current session. */
+    private var gateDone = false
     private var instagramInFront = false
     private var lastScrollView = ""
 
@@ -35,6 +38,11 @@ class MindHeedService : AccessibilityService() {
         super.onServiceConnected()
         prefs = Prefs(this)
         overlay = OverlayController(this, ::onFloatyTapped)
+        gate = GateController(this) { shape ->
+            gateDone = true
+            if (shape != null) prefs.addShape(shape)
+            render()
+        }
         prefs.raw.registerOnSharedPreferenceChangeListener(prefsListener)
         try {
             getSystemService(ConnectivityManager::class.java)?.registerDefaultNetworkCallback(networkCallback)
@@ -73,6 +81,13 @@ class MindHeedService : AccessibilityService() {
         }
         if (!isMainFeed(viewClass)) return
 
+        // Attention pause: at the first feed scroll of a session, not when Instagram opens,
+        // so messages, posting or checking a profile stay frictionless.
+        if (prefs.enabled && prefs.gateEnabled && !gateDone) {
+            gate.show()
+            return
+        }
+
         val fromIndex = if (event.itemCount > 0) event.fromIndex else ScrollTracker.NO_INDEX
         if (tracker.onScroll(now, fromIndex)) {
             prefs.lastSwipes = tracker.swipes
@@ -105,13 +120,14 @@ class MindHeedService : AccessibilityService() {
                 // Leaving Instagram ends the saved-posts mode: next time, the feed counts again.
                 prefs.pausedUntil = 0L
                 overlay.hide()
+                gate.hide() // Not answered: it comes back at the next feed scroll.
             }
         }
     }
 
     private fun enterInstagram(now: Long) {
         instagramInFront = true
-        tracker.onEnter(now)
+        if (tracker.onEnter(now)) gateDone = false
         if (tracker.swipes == 0 && prefs.lastSwipes != 0) {
             // A real break reset the counter: reset the diagnostic too.
             prefs.lastSwipes = 0
@@ -183,6 +199,7 @@ class MindHeedService : AccessibilityService() {
         }
         if (::overlay.isInitialized) {
             overlay.hide()
+            gate.hide()
         }
         super.onDestroy()
     }

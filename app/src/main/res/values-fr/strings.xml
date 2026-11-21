@@ -18,11 +18,21 @@
     <string name="disclosure_decline">Plus tard</string>
 
     <string name="how_title">Comment ça marche</string>
-    <string name="how_body">Les premières publications restent nettes. Ensuite, publication après publication, l’écran se voile. Quand le voile devient fort, une bulle apparaît : touche-la pour ouvrir tes publications enregistrées. Tes enregistrements s’ouvrent sans voile ni limite, tant que tu restes dans Instagram. Le compteur repart de zéro. Le voile ne compte que le feed principal.</string>
+    <string name="how_body">À ton premier scroll du feed, une courte pause te demande de trouver une forme dans une image. Ensuite, les premières publications restent nettes. Ensuite, publication après publication, l’écran se voile. Quand le voile devient fort, une bulle apparaît : touche-la pour ouvrir tes publications enregistrées. Tes enregistrements s’ouvrent sans voile ni limite, tant que tu restes dans Instagram. Le compteur repart de zéro. Le voile ne compte que le feed principal.</string>
     <string name="diagnostic_view">Dernière vue scrollée : %1$s · version %2$s</string>
     <string name="update_title">Nouvelle version disponible</string>
     <string name="update_body">MindHeed %1$s est disponible. Mettre à jour maintenant ?</string>
     <string name="update_now">Mettre à jour</string>
+
+    <string name="gate_title">Pause d’attention</string>
+    <string name="gate_question">Quelle forme vois-tu dans cette image ?</string>
+    <string name="gate_hint">ex. un dragon, un visage, un bateau…</string>
+    <string name="gate_ok">C’est ça !</string>
+    <string name="gate_skip">Passer</string>
+    <string name="gate_image_description">Image de nuages, de mur, de marbre ou de bois, dans laquelle trouver une forme</string>
+    <string name="switch_gate">Pause d’attention au premier scroll (trouver une forme dans une image)</string>
+    <string name="shapes_none">Formes trouvées : aucune pour l’instant.</string>
+    <string name="shapes_list">Formes trouvées : %1$d (dernières : %2$s)</string>
 
     <string name="settings_title">Réglages</string>
     <string name="switch_enabled">Voiler Instagram quand je scrolle trop longtemps</string>

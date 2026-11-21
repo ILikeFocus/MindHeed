@@ -78,13 +78,19 @@ class ScrollTracker {
         lastFromIndex = NO_INDEX
     }
 
-    /** Instagram came back to the front: a real break resets the counter, a quick app switch does not. */
-    fun onEnter(now: Long) {
-        if (leftAt != NONE && now - leftAt >= BREAK_RESET_MS) {
-            reset()
-        }
+    /**
+     * Instagram came back to the front: a real break resets the counter, a quick app switch does not.
+     * @return true when this starts a new session (first entry, or after a real break).
+     */
+    fun onEnter(now: Long): Boolean {
+        val newSession = !started || (leftAt != NONE && now - leftAt >= BREAK_RESET_MS)
+        if (newSession) reset()
+        started = true
         leftAt = NONE
+        return newSession
     }
+
+    private var started = false
 
     fun reset() {
         swipes = 0

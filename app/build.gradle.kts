@@ -20,7 +20,7 @@ android {
         minSdk = 26
         targetSdk = 36
         versionCode = ciVersionCode ?: 1
-        versionName = "0.3.0"
+        versionName = "0.4.0"
 
         val configUrl =
             if (githubRepo.isBlank()) "" else "https://raw.githubusercontent.com/$githubRepo/main/config/remote-config.json"

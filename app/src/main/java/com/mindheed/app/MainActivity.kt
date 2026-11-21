@@ -98,6 +98,11 @@ class MainActivity : Activity() {
         }
         findViewById<View>(R.id.unlock_button).visibility = if (restricted) View.VISIBLE else View.GONE
 
+        val shapes = prefs.shapes
+        findViewById<TextView>(R.id.shapes).text =
+            if (shapes.isEmpty()) getString(R.string.shapes_none)
+            else getString(R.string.shapes_list, shapes.size, shapes.take(5).joinToString(", "))
+
         findViewById<TextView>(R.id.diagnostic).text =
             getString(R.string.diagnostic, prefs.lastSwipes, prefs.lastItemsPassed) + "\n" +
             getString(R.string.diagnostic_view, prefs.lastScrollView.ifBlank { "–" }, BuildConfig.VERSION_NAME)
@@ -107,6 +112,11 @@ class MainActivity : Activity() {
         findViewById<Switch>(R.id.enabled_switch).apply {
             isChecked = prefs.enabled
             setOnCheckedChangeListener { _, checked -> prefs.enabled = checked }
+        }
+
+        findViewById<Switch>(R.id.gate_switch).apply {
+            isChecked = prefs.gateEnabled
+            setOnCheckedChangeListener { _, checked -> prefs.gateEnabled = checked }
         }
 
         usernameField = findViewById(R.id.username)

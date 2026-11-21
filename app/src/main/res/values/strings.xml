@@ -20,7 +20,16 @@
     <string name="disclosure_decline">Not now</string>
 
     <string name="how_title">How it works</string>
-    <string name="how_body">The first posts you scroll past stay clear. Then, post after post, the screen veils over. When it gets strong, a bubble appears: tap it to open your saved posts. They open with no veil and no limit while you stay in Instagram, and the counter starts over. Only the main feed is counted.</string>
+    <string name="gate_title">Attention pause</string>
+    <string name="gate_question">What shape do you see in this image?</string>
+    <string name="gate_hint">e.g. a dragon, a face, a boat…</string>
+    <string name="gate_ok">That’s it!</string>
+    <string name="gate_skip">Skip</string>
+    <string name="gate_image_description">Image of clouds, a wall, marble or wood, in which to find a shape</string>
+    <string name="switch_gate">Attention pause at the first scroll (find a shape in an image)</string>
+    <string name="shapes_none">Shapes found: none yet.</string>
+    <string name="shapes_list">Shapes found: %1$d (latest: %2$s)</string>
+    <string name="how_body">At your first scroll of the feed, a short pause asks you to find a shape in an image. Then the first posts you scroll past stay clear. Then, post after post, the screen veils over. When it gets strong, a bubble appears: tap it to open your saved posts. They open with no veil and no limit while you stay in Instagram, and the counter starts over. Only the main feed is counted.</string>
     <string name="diagnostic_view">Last scrolled view: %1$s · version %2$s</string>
     <string name="update_title">New version available</string>
     <string name="update_body">MindHeed %1$s is available. Update now?</string>
